@@ -9,7 +9,6 @@ Personal website of Doug Palm
 
 ## notes
 - Built with react, next, now, xo, antd, lodash, and more
-- Stores data in `localStorage` for later retrieval
 
 ## commands
 - `yarn dev` to develop
