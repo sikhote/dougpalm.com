@@ -1,7 +1,7 @@
 module.exports = {
   webpack: (config, { defaultLoaders, dir }) => {
     const rulesExceptBabelLoaderRule = config.module.rules.filter(
-      rule => rule.use !== defaultLoaders.babel
+      rule => rule.use !== defaultLoaders.babel,
     );
 
     config.module.rules = [
@@ -18,12 +18,12 @@ module.exports = {
               ...defaultLoaders.babel.options,
               // Disable cacheDirectory so that Babel
               // always rebuilds dependent modules
-              cacheDirectory: false
-            }
-          }
-        ]
-      }
+              cacheDirectory: false,
+            },
+          },
+        ],
+      },
     ];
     return config;
-  }
+  },
 };

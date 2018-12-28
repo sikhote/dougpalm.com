@@ -11,8 +11,8 @@ const Navigation = () => (
     <div className="inner">
       <img src="/static/img/P9030648.jpg" alt="header" />
       <div
-        className="content"
         dangerouslySetInnerHTML={{ __html: converter.makeHtml(content) }}
+        className="content"
       />
     </div>
   </div>

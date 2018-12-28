@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css';
-import { colors, bps, spacing } from '../../lib/styling';
+import { bps } from '../../lib/styling';
 
 export default css`
   .root {

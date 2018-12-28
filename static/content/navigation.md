@@ -1,4 +1,5 @@
 - [Home](/)
+- [Garden Projects](/garden-projects)
 - [Outdoor Projects](/outdoor-projects)
 - [Vacations](/vacations)
 - [Philosophy](/philosophy)

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Navigation from '../Navigation';
-import styles from './styles';
 import PageTitle from '../PageTitle';
+import styles from './styles';
 
 const Page = ({ children, title }) => (
   <div className="root">

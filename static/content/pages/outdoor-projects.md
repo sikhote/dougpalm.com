@@ -1,5 +1,7 @@
 # Outdoor Projects
 
-- [Alaska Schedule](/static/uploads/Alaska-Schedule.pdf)
-- [DenailHwy07](/static/uploads/DenailHwy07.pdf)
-- [Europe Schedule](/static/uploads/Europe-Schedule-6.pdf)
+- [Rain Barrel Stand](/static/uploads/Rain-Barrel-Stand.pdf)
+- [Picnic Table _ Oval Narrow nobrackets](/static/uploads/Picnic-Table-_-Oval-Narrow-nobrackets.pdf)
+
+![Picnic Table](/static/uploads/Picnic-Table.jpg)
+![Table Construction](/static/uploads/Table-Construction.jpg)
