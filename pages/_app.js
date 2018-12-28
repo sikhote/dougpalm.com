@@ -1,7 +1,6 @@
 import React from 'react';
 import NextApp, { Container } from 'next/app';
 import css from 'styled-jsx/css';
-import Page from '../components/Page';
 import { fontFamilies, fontWeights, fontSizes, colors } from '../lib/styling';
 
 const styles = css.global`
@@ -13,7 +12,7 @@ const styles = css.global`
   body {
     font-family: ${fontFamilies.normal};
     font-weight: ${fontWeights.normal};
-    font-size: ${fontSizes.a4}px;
+    font-size: ${fontSizes.a3}px;
     color: ${colors.text};
   }
 `;
@@ -35,9 +34,7 @@ class App extends NextApp {
     return (
       <Container>
         <style jsx>{styles}</style>
-        <Page>
-          <Component {...pageProps} />
-        </Page>
+        <Component {...pageProps} />
       </Container>
     );
   }
