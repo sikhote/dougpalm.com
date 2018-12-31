@@ -9,8 +9,8 @@ export const scopedStyles = css`
   .folder {
     margin-top: ${spacing.a5}px;
     width: 100%;
-    min-height: 100vh;
-    border: 1px solid ${colors.border};
+    min-height: 600px;
+    border: none;
   }
   @media (max-width: ${bps.a2}px) {
     .root {

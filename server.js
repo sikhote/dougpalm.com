@@ -13,7 +13,14 @@ app.prepare().then(() => {
   const server = express();
 
   server.use('/content', express.static(path.join(__dirname, 'content')));
-  server.use('/content', serveIndex(path.join(__dirname, 'content')));
+  server.use(
+    '/content',
+    serveIndex(path.join(__dirname, 'content'), {
+      icons: true,
+      template: path.join(__dirname, 'lib/serve-index/directory.html'),
+      stylesheet: path.join(__dirname, 'lib/serve-index/style.css'),
+    }),
+  );
 
   server.get('*', (req, res) => {
     const { pathname, query } = parse(req.url, true);
