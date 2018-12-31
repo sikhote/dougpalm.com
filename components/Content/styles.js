@@ -24,7 +24,7 @@ export const globalStyles = css.global`
   .markdown a {
     color: ${colors.a1};
   }
-  .markdown h1 {
+  .markdown h1:not(:last-child) {
     padding-bottom: ${spacing.a5}px;
   }
   .markdown h2 {
