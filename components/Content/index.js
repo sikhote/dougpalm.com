@@ -27,7 +27,9 @@ const Content = ({ markdown, folder }) => {
       <PageTitle title={title} />
       <style jsx>{scopedStyles}</style>
       <style jsx>{globalStyles}</style>
-      <div className="markdown" dangerouslySetInnerHTML={{ __html: html }} />
+      {html && (
+        <div className="markdown" dangerouslySetInnerHTML={{ __html: html }} />
+      )}
       {folder && <iframe className="folder" src={folder} />}
     </div>
   );

@@ -7,10 +7,12 @@ export const scopedStyles = css`
     padding-top: ${spacing.a5}px;
   }
   .folder {
-    margin-top: ${spacing.a5}px;
     width: 100%;
     min-height: 600px;
     border: none;
+  }
+  .folder:not(:first-child) {
+    margin-top: ${spacing.a5}px;
   }
   @media (max-width: ${bps.a2}px) {
     .root {
