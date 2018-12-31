@@ -2,6 +2,7 @@ import React from 'react';
 import NextApp, { Container } from 'next/app';
 import css from 'styled-jsx/css';
 import { fontFamilies, fontWeights, fontSizes, colors } from '../lib/styling';
+import Page from '../components/Page';
 
 const styles = css.global`
 	* {
@@ -34,7 +35,9 @@ class App extends NextApp {
     return (
       <Container>
         <style jsx>{styles}</style>
-        <Component {...pageProps} />
+        <Page>
+          <Component {...pageProps} />
+        </Page>
       </Container>
     );
   }

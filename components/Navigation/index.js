@@ -1,6 +1,6 @@
 import React from 'react';
 import showdown from 'showdown';
-import content from '../../static/content/navigation.md';
+import content from '../../content/navigation.md';
 import styles from './styles';
 
 const converter = new showdown.Converter();
