@@ -1,11 +1,9 @@
 import React from 'react';
 import Router from 'next/router';
-import showdown from 'showdown';
 import content from '../../content/navigation.md';
-import { pagesMatch, blogMatch } from '../../lib/routing';
+import { converter } from '../../lib/content';
+import { pagesMatch } from '../../lib/routing';
 import styles from './styles';
-
-const converter = new showdown.Converter();
 
 const Navigation = () => (
   <div className="root">
@@ -24,13 +22,13 @@ const Navigation = () => (
           }
 
           const pagesParams = pagesMatch(asUrl);
-          const blogParams = blogMatch(asUrl);
           let url = asUrl;
 
           if (pagesParams) {
-            url = { pathname: '/pages', query: pagesParams };
-          } else if (blogParams) {
-            url = { pathname: '/blog', query: blogParams };
+            url = {
+              pathname: '/pages',
+              query: { ...pagesParams, type: 'pages' },
+            };
           }
 
           Router.push(url, asUrl);

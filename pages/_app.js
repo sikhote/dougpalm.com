@@ -22,7 +22,7 @@ const styles = css.global`
     font-size: ${fontSizes.a3}px;
     color: ${colors.text};
   }
-  .markdown:nth-of-type(2) {
+  .markdown:nth-of-type(n + 2) {
     padding-top: ${spacing.a5}px;
   }
   .markdown a {
@@ -34,9 +34,13 @@ const styles = css.global`
   .markdown h2 {
     padding-bottom: ${spacing.a3}px;
   }
+  .markdown h3 {
+    padding-bottom: ${spacing.a3}px;
+  }
   .markdown hr {
-    border-top: 1px solid ${colors.border};
-    margin-bottom: ${spacing.a4}px;
+    border-top: .1px solid ${colors.border};
+    margin-top: ${spacing.a5}px;
+    margin-bottom: ${spacing.a6}px;
   }
   .markdown blockquote {
     color: ${colors.primary};
@@ -64,7 +68,9 @@ const styles = css.global`
   }
   .markdown img {
     max-width: 100%;
-    max-height: 400px;
+    max-height: 200px;
+    margin-right: ${spacing.a4}px;
+    margin-bottom: ${spacing.a4}px;
   }
   .markdown ul {
     padding: 0;

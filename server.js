@@ -21,10 +21,19 @@ app.prepare().then(() => {
     const pagesParams = pagesMatch(pathname);
     const blogParams = blogMatch(pathname);
 
-    if (pagesParams) {
-      app.render(req, res, '/pages', Object.assign(pagesParams, query));
-    } else if (blogParams) {
-      app.render(req, res, '/blog', Object.assign(blogParams, query));
+    if (pagesParams || blogParams) {
+      app.render(
+        req,
+        res,
+        '/pages',
+        Object.assign(
+          {
+            ...(pagesParams || blogParams),
+            type: pagesParams ? 'pages' : 'blog',
+          },
+          query,
+        ),
+      );
     } else {
       handle(req, res);
     }
