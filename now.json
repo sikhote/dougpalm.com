@@ -3,8 +3,32 @@
   "alias": "dougpalm",
   "name": "dougpalm",
   "builds": [
-    {"src": "package.json", "use": "@now/next"},
+    {"src": "package.json", "use": "@now/next@canary"},
     {"src": "static/**", "use": "@now/static"},
     {"src": "content/**", "use": "@now/static"}
+  ],
+  "routes": [
+    {
+      "src": "^/static/(.+)$",
+      "headers": { "Cache-Control": "s-maxage=31536000" },
+      "dest": "/static/$1"
+    },
+    {
+      "src": "^/content/(.+)$",
+      "headers": { "Cache-Control": "s-maxage=31536000" },
+      "dest": "/static/$1"
+    },
+    {
+      "src": "^/pages/(.*)$",
+      "dest": "/content/pages/$1"
+    },
+    {
+      "src": "^/blog/(.*)$",
+      "dest": "/content/blog/$1"
+    },
+    {
+      "src": "^/(.*)$",
+      "dest": "/$1"
+    }
   ]
 }
