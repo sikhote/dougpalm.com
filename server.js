@@ -1,48 +1,33 @@
 const path = require('path');
-const fs = require('fs');
 const { parse } = require('url');
 const express = require('express');
 const serveIndex = require('serve-index');
 const next = require('next');
+const { pagesMatch, blogMatch } = require('./lib/routing');
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
+const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
 
   server.use('/content', express.static(path.join(__dirname, 'content')));
-  server.use(
-    '/content',
-    serveIndex(path.join(__dirname, 'content'), {
-      icons: true,
-      template: path.join(__dirname, 'lib/serve-index/directory.html'),
-      stylesheet: path.join(__dirname, 'lib/serve-index/style.css'),
-    }),
-  );
+  server.use('/content', serveIndex(path.join(__dirname, 'content')));
 
   server.get('*', (req, res) => {
     const { pathname, query } = parse(req.url, true);
-    const location = pathname.replace(/\/+$/, '');
-    const folderPath = path.join(__dirname, `/content/pages${location}`);
-    const contentPath = path.join(folderPath, 'index.md');
-    const routeToRender = pathname === '/' ? '/' : '/content';
+    const pagesParams = pagesMatch(pathname);
+    const blogParams = blogMatch(pathname);
 
-    if (fs.existsSync(contentPath)) {
-      res.markdown = fs.readFileSync(contentPath).toString();
-      res.folder =
-        fs.readdirSync(folderPath).length > 1
-          ? `/content/pages${location}`
-          : '';
+    if (pagesParams) {
+      app.render(req, res, '/pages', Object.assign(pagesParams, query));
+    } else if (blogParams) {
+      app.render(req, res, '/blog', Object.assign(blogParams, query));
+    } else {
+      handle(req, res);
     }
-
-    return app.render(
-      req,
-      res,
-      routeToRender,
-      Object.assign({ pathname }, query),
-    );
   });
 
   server.listen(port, err => {

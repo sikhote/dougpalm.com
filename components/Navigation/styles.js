@@ -15,6 +15,7 @@ export default css`
   }
   .inner {
     position: relative;
+    background: ${colors.black};
   }
   img {
     width: 100%;
@@ -51,7 +52,6 @@ export default css`
     font-weight: ${fontWeights.bold};
     text-shadow: 0 0 20px black;
   }
-
   @media (max-width: ${bps.a2}px) {
     .root {
       padding: 0;

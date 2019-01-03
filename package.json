@@ -24,15 +24,18 @@
     "space": 2
   },
   "dependencies": {
-    "express": "^4.16.4",
+    "axios": "0.18.0",
+    "express": "4.16.4",
     "he": "1.2.0",
     "lodash": "4.17.11",
+    "moment": "^2.23.0",
     "next": "7.0.2",
+    "path-match": "1.2.4",
     "prop-types": "15.6.2",
     "raw-loader": "1.0.0",
-    "react": "16.6.3",
-    "react-dom": "16.6.3",
-    "serve-index": "^1.9.1",
+    "react": "16.7.0-alpha.2",
+    "react-dom": "16.7.0-alpha.2",
+    "serve-index": "1.9.1",
     "showdown": "1.9.0"
   },
   "devDependencies": {
