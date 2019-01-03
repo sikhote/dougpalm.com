@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
+    "now-build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
   "xo": {
@@ -29,7 +30,7 @@
     "he": "1.2.0",
     "lodash": "4.17.11",
     "moment": "^2.23.0",
-    "next": "7.0.2",
+    "next": "^8.0.0-canary.2",
     "path-match": "1.2.4",
     "prop-types": "15.6.2",
     "raw-loader": "1.0.0",
