@@ -9,5 +9,4 @@ jobs:
     steps:
       - checkout
       - run: yarn
-      - run: yarn prettier "./**/*.js" -l
       - run: yarn xo
