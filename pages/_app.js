@@ -1,6 +1,6 @@
+import css from 'styled-jsx/css';
 import React from 'react';
 import NextApp, { Container } from 'next/app';
-import css from 'styled-jsx/css';
 import {
   fontFamilies,
   fontWeights,

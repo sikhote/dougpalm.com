@@ -17,6 +17,15 @@
       "react/no-danger": 0,
       "unicorn/filename-case": 0
     },
+    "settings": {
+      "import/core-modules": [
+        "styled-jsx",
+        "styled-jsx/css"
+      ],
+      "react": {
+        "version": "16.7.0-alpha.2"
+      }
+    },
     "env": [
       "browser",
       "node"
