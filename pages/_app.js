@@ -21,6 +21,7 @@ const styles = css.global`
     font-weight: ${fontWeights.normal};
     font-size: ${fontSizes.a3}px;
     color: ${colors.text};
+    background: ${colors.background};
   }
   .markdown:nth-of-type(n + 2) {
     padding-top: ${spacing.a5}px;

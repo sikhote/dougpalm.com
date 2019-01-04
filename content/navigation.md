@@ -1,4 +1,3 @@
-- [Doug Palm](/)
 - [Garden Projects](/pages/garden-projects)
 - [Outdoor Projects](/pages/outdoor-projects)
 - [Vacations](/pages/vacations)
