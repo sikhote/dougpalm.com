@@ -68,11 +68,7 @@ export default css`
       padding: 0;
     }
     .inner:after {
-      background: linear-gradient(
-        rgba(0, 0, 0, 0) 70%,
-        black 85%,
-        black 100%
-      );
+      background: linear-gradient(rgba(0, 0, 0, 0) 70%, black 85%, black 100%);
     }
     .content {
       display: grid;
@@ -81,12 +77,13 @@ export default css`
       align-items: end;
       justify-content: space-between;
       width: 100%;
+      padding: ${spacing.a5}px ${spacing.pageA2}px;
     }
     .nav {
       display: block;
       height: 32px;
       position: relative;
-      top: 4px;
+      top: 7px;
       left: 2px;
     }
     .nav svg.open {
