@@ -69,7 +69,7 @@ export default css`
     }
     .inner:after {
       background: linear-gradient(
-        rgba(0, 255, 0, 0) 70%,
+        rgba(0, 0, 0, 0) 70%,
         black 85%,
         black 100%
       );
