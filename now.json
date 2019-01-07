@@ -4,5 +4,6 @@
   "features": {
     "cloud": "v2"
   },
-  "alias": "dougpalm.com"
+  "alias": "dougpalm",
+  "name": "dougpalm"
 }
