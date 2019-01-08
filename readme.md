@@ -7,15 +7,4 @@
 # dougpalm.com
 Personal website of Doug Palm
 
-## notes
-- Built with react, next, now, xo, antd, lodash, and more
-
-## requirements
-- [Now](https://zeit.co/now)
-- [Node](https://nodejs.org)
-- [Yarn](https://yarnpkg.com/)
-
-## commands
-- `yarn dev` to develop
-- `yarn build` to build for production
-- `yarn start` to run in production mode
+Built with [React](https://reactjs.org), [Next](https://nextjs.org), [Now](https://zeit.co/now), [xo](https://github.com/xojs/xo), [Lodash](https://lodash.com), and more
