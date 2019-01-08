@@ -28,34 +28,21 @@ const getData = ({ id, type, setState }) => {
     .catch(() => ({ exists: false }));
 
   Promise.all([markdownPromise, filesPromise]).then(([a, b]) =>
-    setState({
-      ...a,
-      ...b,
-      initial: false,
-      id,
-      type,
-    }),
+    setState({ ...a, ...b }),
   );
 };
 
-const Pages = props => {
+const Pages = ({ id, type }) => {
   const initialState = {
-    initial: true,
     exists: undefined,
     html: '',
     files: [],
     title: '',
-    id: props.id,
-    type: props.type,
   };
   const [state, setState] = useState(initialState);
-  const { initial, html, files, title, exists, id, type } = state;
+  const { initial, html, files, title, exists } = state;
 
-  useEffect(() => {
-    if (initial || id !== props.id || type !== props.type) {
-      getData({ id: props.id, type: props.type, setState });
-    }
-  });
+  useEffect(() => getData({ id, type, setState }), [id, type]);
 
   if (!id || !type || exists === false) {
     return <Error statusCode={404} />;

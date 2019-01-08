@@ -20,25 +20,19 @@ const getData = ({ setState }) => {
   Promise.all([postsPromise]).then(([a]) =>
     setState({
       ...a,
-      initial: false,
     }),
   );
 };
 
 const Home = () => {
   const initialState = {
-    initial: true,
     html: '',
     posts: [],
   };
   const [state, setState] = useState(initialState);
-  const { initial, posts, html } = state;
+  const { posts, html } = state;
 
-  useEffect(() => {
-    if (initial) {
-      getData({ setState });
-    }
-  });
+  useEffect(() => getData({ setState }), []);
 
   return (
     <div>
