@@ -17,11 +17,7 @@ const getData = ({ setState }) => {
     return posts.length === 0 ? { posts } : getMarkdownPromise(posts);
   });
 
-  Promise.all([postsPromise]).then(([a]) =>
-    setState({
-      ...a,
-    }),
-  );
+  Promise.all([postsPromise]).then(([a]) => setState(a));
 };
 
 const Home = () => {
