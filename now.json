@@ -1,7 +1,11 @@
 {
   "version": 2,
-  "builds": [{ "src": "package.json", "use": "@now/next" }],
+  "builds": [
+    { "src": "content/**", "use": "@now/static" },
+    { "src": "package.json", "use": "@now/next" }
+  ],
   "routes": [
+    { "src": ".*", "headers": { "Access-Control-Allow-Origin": "*" } },
     { "src": "/pages/(?<id>[^/]+)$", "dest": "/pages?id=$id&type=pages" },
     { "src": "/blog/(?<id>[^/]+)$", "dest": "/pages?id=$id&type=blog" }
   ],

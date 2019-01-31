@@ -4,7 +4,7 @@ import Error from 'next/error';
 import moment from 'moment';
 import axios from 'axios';
 import PageTitle from '../components/PageTitle';
-import { converter, getH1 } from '../lib/content';
+import { converter, getH1, contentBase } from '../lib/content';
 
 const getData = ({ id, type, setState }) => {
   if (!id || !type) {
@@ -12,19 +12,33 @@ const getData = ({ id, type, setState }) => {
   }
 
   const markdownPromise = axios
-    .get(`/content/${type}/${id}/index.md`)
+    .get(`${contentBase}/${type}/${id}/content.md`)
     .then(res => {
       const html = converter.makeHtml(res.data);
       const title = html.indexOf('<h1') === -1 ? '' : getH1(html);
       return { html, title };
-    });
+    })
+    .catch(() => ({}));
 
   const filesPromise = axios
-    .get(`/content/${type}/${id}`)
-    .then(res => ({
-      exists: typeof res.data === 'object',
-      files: res.data.filter(file => file !== 'index.md'),
-    }))
+    .get(`${contentBase}/${type}/${id}`)
+    .then(res => {
+      const parser = new DOMParser();
+      const page = parser.parseFromString(res.data, 'text/html');
+      const links = page.querySelectorAll('#files li a');
+      const files = Array.prototype.slice
+        .call(links)
+        .map(element => {
+          const parts = element.getAttribute('href').split('/');
+          return parts.slice(-1)[0];
+        })
+        .filter(file => file !== 'content.md');
+
+      return {
+        exists: typeof res.data === 'string',
+        files,
+      };
+    })
     .catch(() => ({ exists: false }));
 
   Promise.all([markdownPromise, filesPromise]).then(([a, b]) =>
@@ -63,7 +77,7 @@ const Pages = ({ id, type }) => {
           <ul className="files">
             {files.map(file => (
               <li key={file}>
-                <a href={`/content/pages/${id}/${file}`}>{file}</a>
+                <a href={`${contentBase}/pages/${id}/${file}`}>{file}</a>
               </li>
             ))}
           </ul>
