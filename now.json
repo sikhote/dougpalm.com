@@ -1,9 +1,10 @@
 {
-  "version": 1,
-  "type": "docker",
-  "features": {
-    "cloud": "v2"
-  },
+  "version": 2,
+  "builds": [{ "src": "package.json", "use": "@now/next" }],
+  "routes": [
+    { "src": "/pages/(?<id>[^/]+)$", "dest": "/pages?id=$id&type=pages" },
+    { "src": "/blog/(?<id>[^/]+)$", "dest": "/pages?id=$id&type=blog" }
+  ],
   "alias": "dougpalm.com",
   "name": "dougpalm"
 }
