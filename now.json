@@ -5,9 +5,9 @@
     { "src": "package.json", "use": "@now/next" }
   ],
   "routes": [
-    { "src": ".*", "headers": { "Access-Control-Allow-Origin": "*" } },
     { "src": "/pages/(?<id>[^/]+)$", "dest": "/pages?id=$id&type=pages" },
-    { "src": "/blog/(?<id>[^/]+)$", "dest": "/pages?id=$id&type=blog" }
+    { "src": "/blog/(?<id>[^/]+)$", "dest": "/pages?id=$id&type=blog" },
+    { "src": ".*", "headers": { "Access-Control-Allow-Origin": "*" } }
   ],
   "alias": "dougpalm.com",
   "name": "dougpalm"
