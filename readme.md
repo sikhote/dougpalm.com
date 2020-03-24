@@ -7,4 +7,4 @@
 # dougpalm.com
 Personal website of Doug Palm
 
-Built with [React](https://reactjs.org), [Next](https://nextjs.org), [Now](https://zeit.co/now), [xo](https://github.com/xojs/xo), [Lodash](https://lodash.com), and more
+Built with [React](https://reactjs.org), [Next](https://nextjs.org), [Now](https://zeit.co/now), [xo](https://github.com/xojs/xo), [Lodash](https://lodash.com), and more.
