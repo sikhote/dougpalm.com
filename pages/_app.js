@@ -1,6 +1,5 @@
 import css from 'styled-jsx/css';
 import React from 'react';
-import NextApp, { Container } from 'next/app';
 import {
   fontFamilies,
   fontWeights,
@@ -94,29 +93,13 @@ const styles = css.global`
   }
 `;
 
-class App extends NextApp {
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return { pageProps };
-  }
-
-  render() {
-    const { Component, pageProps } = this.props;
-
-    return (
-      <Container>
-        <style jsx>{styles}</style>
-        <Page>
-          <Component {...pageProps} />
-        </Page>
-      </Container>
-    );
-  }
-}
+const App = ({ Component, pageProps }) => (
+  <div>
+    <style jsx>{styles}</style>
+    <Page>
+      <Component {...pageProps} />
+    </Page>
+  </div>
+);
 
 export default App;

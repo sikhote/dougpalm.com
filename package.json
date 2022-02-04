@@ -38,12 +38,12 @@
     "he": "1.2.0",
     "lodash": "4.17.11",
     "moment": "2.23.0",
-    "next": "7.0.2",
+    "next": "^12.0.10",
     "path-match": "1.2.4",
     "prop-types": "15.6.2",
     "raw-loader": "1.0.0",
-    "react": "16.7.0-alpha.2",
-    "react-dom": "16.7.0-alpha.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "showdown": "1.9.0"
   },
   "devDependencies": {
