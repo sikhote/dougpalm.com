@@ -1,5 +1,6 @@
 import css from 'styled-jsx/css';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   fontFamilies,
   fontWeights,
@@ -101,5 +102,14 @@ const App = ({ Component, pageProps }) => (
     </Page>
   </div>
 );
+
+App.propTypes = {
+  Component: PropTypes.any.isRequired,
+  pageProps: PropTypes.object,
+};
+
+App.defaultProps = {
+  pageProps: [],
+};
 
 export default App;

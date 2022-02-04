@@ -39,25 +39,17 @@ const Navigation = () => {
             dangerouslySetInnerHTML={{ __html: html }}
             className={`md ${showNav ? 'open' : ''}`}
             onClick={e => {
-              e.preventDefault();
-              const asUrl = e.target.getAttribute('href');
+              const href = e.target.getAttribute('href');
 
-              if (!asUrl) {
+              if (!href) {
                 return;
               }
-              console.log({asUrl})
-              // const pagesParams = pagesMatch(asUrl);
-              // let url = asUrl;
 
-              // if (pagesParams) {
-              //   url = {
-              //     pathname: '/pages',
-              //     query: { ...pagesParams, type: 'pages' },
-              //   };
-              // }
-
-              // setState({ ...state, showNav: false });
-              // Router.push(url, asUrl);
+              if (href.startsWith('/')) {
+                e.preventDefault();
+                Router.push(href);
+                setState({ ...state, showNav: false });
+              }
             }}
           />
         </div>

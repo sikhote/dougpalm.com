@@ -1,9 +1,11 @@
+import { promises as fs } from 'fs';
+import path from 'path';
 import React from 'react';
-import axios from 'axios';
 import moment from 'moment';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import PageTitle from '../components/PageTitle';
-import { converter, contentBase } from '../lib/content';
+import { converter } from '../lib/content';
 
 const Home = ({ posts, html }) => (
   <div>
@@ -37,29 +39,23 @@ const Home = ({ posts, html }) => (
   </div>
 );
 
-export async function getServerSideProps(context) {
-  const getMarkdownPromise = posts =>
-    axios.get(`${contentBase}/blog/${posts[0]}/content.md`).then(res => {
-      const html = converter.makeHtml(res.data);
-      return { html, posts };
-    });
-
-  const postsPromise = axios.get(`${contentBase}/blog`).then(res => {
-    const parser = new DOMParser();
-    const page = parser.parseFromString(res.data, 'text/html');
-    const links = page.querySelectorAll('#files li a');
-    const posts = Array.prototype.slice
-      .call(links)
-      .map(element => element.getAttribute('href').split('/')[3]);
-    return posts.length === 0 ? { posts } : getMarkdownPromise(posts);
-  });
-
-  const data = {posts: '', html: ''}//await Promise.all([postsPromise]).then(([a]) => a);
-  console.log(data)
-
-  return {
-    props: data, // will be passed to the page component as props
-  };
+export async function getStaticProps() {
+  const blogDirectory = path.join(process.cwd(), 'public', 'content', 'blog');
+  const posts = await fs.readdir(blogDirectory);
+  const mdPath = path.join(blogDirectory, posts[0], 'content.md');
+  const md = await fs.readFile(mdPath, 'utf8');
+  const html = converter.makeHtml(md);
+  return { props: { html, posts } };
 }
+
+Home.propTypes = {
+  posts: PropTypes.array,
+  html: PropTypes.string,
+};
+
+Home.defaultProps = {
+  posts: [],
+  html: '',
+};
 
 export default Home;

@@ -7,17 +7,15 @@ module.exports = {
       },
     ];
   },
-  async redirects() {
+  async rewrites() {
     return [
       {
         source: '/pages/:id',
         destination: '/pages?id=:id&type=pages',
-        permanent: true,
       },
       {
         source: '/blog/:id',
         destination: '/pages?id=:id&type=blog',
-        permanent: true,
       },
     ];
   },
