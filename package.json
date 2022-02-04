@@ -34,7 +34,7 @@
     "space": 2
   },
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "0.21.2",
     "he": "1.2.0",
     "lodash": "4.17.11",
     "moment": "2.23.0",
