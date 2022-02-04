@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
-import content from '../../content/navigation.md';
+import content from '../../public/content/navigation.md';
 import { converter } from '../../lib/content';
 import { pagesMatch } from '../../lib/routing';
 import translations from '../../lib/translations';
@@ -20,7 +20,7 @@ const Navigation = () => {
     <div className="root">
       <style jsx>{styles}</style>
       <div className="inner">
-        <img src="/static/img/P9030648.jpg" alt="header" />
+        <img src="/img/P9030648.jpg" alt="header" />
         <div className="content">
           <Link href="/">
             <a className="home">{translations.siteName}</a>

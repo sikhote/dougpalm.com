@@ -7,12 +7,12 @@ import { converter } from '../lib/content';
 
 const getData = ({ setState }) => {
   const getMarkdownPromise = posts =>
-    axios.get(`/blog/${posts[0]}/content.md`).then(res => {
+    axios.get(`/content/blog/${posts[0]}/content.md`).then(res => {
       const html = converter.makeHtml(res.data);
       return { html, posts };
     });
 
-  const postsPromise = axios.get('/blog').then(res => {
+  const postsPromise = axios.get('/content/blog').then(res => {
     const parser = new DOMParser();
     const page = parser.parseFromString(res.data, 'text/html');
     const links = page.querySelectorAll('#files li a');
