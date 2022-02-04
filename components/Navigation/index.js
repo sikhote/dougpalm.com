@@ -3,7 +3,6 @@ import Router from 'next/router';
 import Link from 'next/link';
 import content from '../../public/content/navigation.md';
 import { converter } from '../../lib/content';
-import { pagesMatch } from '../../lib/routing';
 import translations from '../../lib/translations';
 import styles from './styles';
 
@@ -46,19 +45,19 @@ const Navigation = () => {
               if (!asUrl) {
                 return;
               }
+              console.log({asUrl})
+              // const pagesParams = pagesMatch(asUrl);
+              // let url = asUrl;
 
-              const pagesParams = pagesMatch(asUrl);
-              let url = asUrl;
+              // if (pagesParams) {
+              //   url = {
+              //     pathname: '/pages',
+              //     query: { ...pagesParams, type: 'pages' },
+              //   };
+              // }
 
-              if (pagesParams) {
-                url = {
-                  pathname: '/pages',
-                  query: { ...pagesParams, type: 'pages' },
-                };
-              }
-
-              setState({ ...state, showNav: false });
-              Router.push(url, asUrl);
+              // setState({ ...state, showNav: false });
+              // Router.push(url, asUrl);
             }}
           />
         </div>
