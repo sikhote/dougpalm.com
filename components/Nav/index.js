@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 
 export default function Nav({ items }) {
   const pathname = usePathname();
-  const [isMobileOpen, setIsMobileOpen] = useState(true);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
     <nav className={styles.nav}>
