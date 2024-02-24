@@ -16,6 +16,8 @@ This page is controlled by `public/content/blog.md`. Any changes to this file wi
 
 New pages can be added and edited by creating a folder within `public/content/pages` and creating a `index.md` file within that folder. The navigation will automatically update.
 
+The contents of the `index.md` is placed at the top of the page. Any files that are also in the folder will be displayed in a list of files that can be downloaded.
+
 ### Editing `md` files
 
 Markdown is a file format that allows certain formatting by using special characters, such as the `#` symbol to create a headline. Follow this [link](https://www.markdownguide.org/cheat-sheet/) for more information.
