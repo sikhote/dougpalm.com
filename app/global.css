@@ -1,0 +1,59 @@
+:root {
+  --colorDefault: rgba(0, 0, 0, 0.8);
+  --colorDark: rgba(0, 0, 0, 0.9);
+  --colorDarker: rgb(0, 0, 0);
+  --colorLight: rgb(255, 255, 255);
+  --colorPrint: black;
+  --colorActive: rgb(0, 76, 135);
+  --lineHeightDefault: 1.5em;
+  --lineHeightTight: 1.1em;
+  --backgroundDefault: white;
+  --backgroundPrint: white;
+  --backgroundDark: rgba(0, 0, 0, 0.9);
+  --backgroundLight: rgba(255, 255, 255, 0.1);
+  --backgroundNav: rgba(0, 60, 107);
+  --selection: rgba(255, 255, 255, 0.35);
+  --fontSizeSmall: 12px;
+  --fontSizeDefault: 16px;
+  --fontSizeMedium: 18px;
+  --fontSizeLarge: 24px;
+  --fontSizeHuge: 32px;
+  --fontSizeMonster: 40px;
+  --fontWeight: 300;
+  --fontWeightThin: 200;
+  --fontWeightBold: 600;
+  --spacingMini: 4px;
+  --spacingSmall: 8px;
+  --spacingMedium: 12px;
+  --spacingLarge: 16px;
+  --spacingHuge: 24px;
+  --spacingPage: 48px;
+  --zIndexNav: 10;
+  --zIndexOverlay: 20;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-weight: var(--fontWeightDefault);
+  font-size: var(--fontSizeDefault);
+  line-height: var(--lineHeightDefault);
+  color: var(--colorDefault);
+  background: var(--backgroundDefault);
+}
+
+::selection {
+  background: var(--selection);
+}
+
+@media print {
+  body {
+    color: var(--colorPrint);
+    background: var(--backgroundPrint);
+  }
+}

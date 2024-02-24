@@ -3,56 +3,29 @@
   "description": "Personal website of Doug Palm",
   "author": "David Sinclair <david@sinclair.tech> (https://sinclair.tech)",
   "homepage": "https://dougpalm.com",
-  "version": "0.0.1",
+  "version": "12.0.0",
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start"
-  },
-  "xo": {
-    "parser": "babel-eslint",
-    "prettier": true,
-    "extends": "xo-react",
-    "rules": {
-      "react/no-danger": 0,
-      "unicorn/filename-case": 0
-    },
-    "settings": {
-      "import/core-modules": [
-        "styled-jsx",
-        "styled-jsx/css"
-      ],
-      "react": {
-        "version": "16.7.0-alpha.2"
-      }
-    },
-    "env": [
-      "browser",
-      "node"
-    ],
-    "space": 2
+    "start": "next start",
+    "lint": "next lint && prettier --check .",
+    "fix": "next lint --fix && prettier --write ."
   },
   "dependencies": {
-    "axios": "0.18.0",
-    "he": "1.2.0",
-    "lodash": "4.17.11",
-    "moment": "2.23.0",
-    "next": "^12.0.10",
-    "prop-types": "15.6.2",
-    "raw-loader": "1.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "showdown": "1.9.0"
+    "classnames": "^2",
+    "date-fns": "^2",
+    "lodash": "^4",
+    "next": "^14",
+    "next-mdx-remote": "^4",
+    "prettier": "^2",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1"
   },
   "devDependencies": {
-    "babel-eslint": "10.0.1",
-    "eslint": "5.12.1",
-    "eslint-config-xo": "0.26.0",
-    "eslint-config-xo-react": "0.18.0",
-    "eslint-plugin-prettier": "3.0.1",
-    "eslint-plugin-react": "7.12.4",
-    "prettier": "1.16.1",
-    "xo": "0.24.0"
+    "eslint": "^8",
+    "eslint-config-next": "^14",
+    "eslint-config-prettier": "^9"
   }
 }
