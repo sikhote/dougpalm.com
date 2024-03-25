@@ -13,6 +13,7 @@
     "fix": "next lint --fix && prettier --write ."
   },
   "dependencies": {
+    "@vercel/analytics": "^1",
     "classnames": "^2",
     "next": "^14",
     "next-mdx-remote": "^4",

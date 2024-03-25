@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import { Noto_Sans } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import Nav from 'components/Nav';
 import './global.css';
 import styles from './styles.module.scss';
@@ -30,6 +31,7 @@ export default async function Layout({ children }) {
       <body className={fontNotoSans.className}>
         <Nav items={navItems} />
         <main className={styles.main}>{children}</main>
+        <Analytics />
       </body>
     </html>
   );
