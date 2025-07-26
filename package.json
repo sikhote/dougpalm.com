@@ -3,7 +3,7 @@
   "description": "Personal website of Doug Palm",
   "author": "David Sinclair <david@sinclair.tech> (https://sinclair.tech)",
   "homepage": "https://dougpalm.com",
-  "version": "12.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
